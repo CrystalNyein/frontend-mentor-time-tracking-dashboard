@@ -14,5 +14,142 @@
 html {
   font-size: 18px;
   font-family: "Rubik", sans-serif;
+  background-color: var(--very-dark-blue);
+}
+body {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+main {
+  margin-bottom: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "profile work play study"
+    "profile exercise social self-care";
+}
+.card {
+  width: 15rem;
   background-color: var(--dark-blue);
+  border-radius: 1.2rem;
+}
+.profile-card {
+  grid-area: profile;
+}
+.profile {
+  background-color: var(--blue);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.profile img {
+  width: 3.7rem;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.profile h1 span {
+  font-size: 0.9rem;
+  color: var(--pale-blue);
+  font-weight: 300;
+}
+.profile h1 {
+  margin-top: 0.8rem;
+  margin-bottom: 3.2rem;
+  font-size: 2.3rem;
+  color: white;
+  font-weight: 300;
+}
+.profile-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  align-items: flex-start;
+}
+.profile-state button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 0.9rem;
+  color: var(--desaturated-blue);
+  font-weight: 300;
+  padding-top: 1.5rem;
+  cursor: pointer;
+}
+.profile-state button.active,
+.profile-state button:hover {
+  color: white;
+}
+.card-img {
+  height: 2.5rem;
+
+  position: relative;
+  overflow: hidden;
+}
+.card-img > img {
+  position: absolute;
+  right: 1rem;
+  top: -0.4rem;
+}
+.card .card-text {
+  background-color: var(--dark-blue);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-text h2 {
+  font-size: 1rem;
+  margin: 0;
+  color: white;
+  font-weight: 400;
+}
+.card-text .current {
+  font-size: 3rem;
+  margin: 1.3rem 0 0;
+  font-weight: 300;
+  color: white;
+  height: 3.5rem;
+}
+.card-text .previous {
+  font-size: 0.85rem;
+  color: var(--pale-blue);
+  font-weight: 300;
+  margin: 0.5rem 0;
+  height: 1.1rem;
+}
+.op-none {
+  opacity: 0;
+}
+.svg-div:hover path {
+  fill: white;
+}
+.work-card {
+  background-color: var(--work);
+  grid-area: work;
+}
+.play-card {
+  background-color: var(--play);
+  grid-area: play;
+}
+.study-card {
+  background-color: var(--study);
+  grid-area: study;
+}
+.exercise-card {
+  background-color: var(--exercise);
+  grid-area: exercise;
+}
+.social-card {
+  background-color: var(--social);
+  grid-area: social;
+}
+.self-care-card {
+  background-color: var(--self-card);
+  grid-area: self-care;
 }

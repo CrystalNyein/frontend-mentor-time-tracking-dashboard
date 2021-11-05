@@ -108,19 +108,48 @@ const weeklyBtn = document.getElementById("weekly-btn");
 const monthlyBtn = document.getElementById("monthly-btn");
 
 const changeReportState = (state) => {
-  console.log();
   data.forEach((d, i) => {
-    cardArr[i + 1].querySelector(".current").innerHTML =
-      d.timeframes[state].current + "hrs";
+    let current = cardArr[i + 1].querySelector(".current");
+    let previous = cardArr[i + 1].querySelector(".previous");
+    let currentText = d.timeframes[state].current + "hrs";
+    let previousText = "Last Week - " + d.timeframes[state].previous + "hrs";
 
-    cardArr[i + 1].querySelector(".previous").innerHTML =
-      "Last Week - " + d.timeframes[state].previous + "hrs";
+    current.textContent = currentText;
+    previous.textContent = previousText;
+    setTimeout(() => {
+      current.classList.remove("op-none");
+      previous.classList.remove("op-none");
+    }, 300);
   });
+};
+
+const removeOpacity = () => {
+  document
+    .querySelectorAll(".current")
+    .forEach((current) => current.classList.add("op-none"));
+  document
+    .querySelectorAll(".previous")
+    .forEach((current) => current.classList.add("op-none"));
 };
 window.onload = (e) => {
   changeReportState("weekly");
 };
 
-dailyBtn.addEventListener("click", () => changeReportState("daily"));
-weeklyBtn.addEventListener("click", () => changeReportState("weekly"));
-monthlyBtn.addEventListener("click", () => changeReportState("monthly"));
+dailyBtn.addEventListener("click", () => {
+  removeOpacity();
+  changeReportState("daily");
+  document.querySelector(".active").classList.remove("active");
+  dailyBtn.classList.add("active");
+});
+weeklyBtn.addEventListener("click", () => {
+  removeOpacity();
+  changeReportState("weekly");
+  document.querySelector(".active").classList.remove("active");
+  weeklyBtn.classList.add("active");
+});
+monthlyBtn.addEventListener("click", () => {
+  removeOpacity();
+  changeReportState("monthly");
+  document.querySelector(".active").classList.remove("active");
+  monthlyBtn.classList.add("active");
+});
