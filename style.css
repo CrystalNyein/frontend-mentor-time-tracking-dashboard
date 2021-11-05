@@ -12,14 +12,14 @@
   --pale-blue: hsl(236, 100%, 87%);
 }
 html {
-  font-size: 18px;
+  font-size: 17px;
   font-family: "Rubik", sans-serif;
   background-color: var(--very-dark-blue);
 }
 body {
   display: grid;
   place-content: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 main {
   margin-bottom: 2rem;
@@ -31,7 +31,7 @@ main {
     "profile exercise social self-care";
 }
 .card {
-  width: 15rem;
+  width: 14rem;
   background-color: var(--dark-blue);
   border-radius: 1.2rem;
 }
@@ -97,6 +97,10 @@ main {
   background-color: var(--dark-blue);
   border-radius: 1rem;
   padding: 1.5rem;
+  cursor: pointer;
+}
+.card-text:active {
+  background-color: hsl(236, 34%, 38%);
 }
 .card-header {
   display: flex;
@@ -126,6 +130,9 @@ main {
 .op-none {
   opacity: 0;
 }
+.svg-div {
+  cursor: pointer;
+}
 .svg-div:hover path {
   fill: white;
 }
@@ -152,4 +159,85 @@ main {
 .self-care-card {
   background-color: var(--self-card);
   grid-area: self-care;
+}
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 15px;
+  }
+  main {
+    grid-template-rows: unset;
+    grid-template-areas:
+      "profile"
+      "work"
+      "play"
+      "study"
+      "exercise"
+      "social"
+      "self-care";
+  }
+  .card {
+    width: 25rem;
+    max-width: 90vw;
+  }
+  .profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .profile h1 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  .profile-state {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .profile-state button {
+    padding-top: 0;
+  }
+  .card-header {
+    margin-bottom: 0.5rem;
+  }
+  .card-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-data .current {
+    margin-top: 0;
+    height: auto;
+    font-size: 2rem;
+  }
+}
+@media only screen and (min-width: 751px) and (max-width: 1060px) {
+  html {
+    font-size: 16px;
+  }
+  main {
+    grid-template-areas:
+      "profile work work"
+      "profile play study"
+      "exercise social self-care";
+  }
+  .work-card {
+    width: auto;
+  }
+  .work-card .card-text {
+    height: 8.05rem;
+  }
+  .work-card .card-header {
+    margin-bottom: 2rem;
+  }
+  .work-card .card-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .work-card .card-data .current {
+    margin-top: 0;
+  }
 }
