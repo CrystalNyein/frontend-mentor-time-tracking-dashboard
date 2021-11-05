@@ -64,8 +64,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   align-items: flex-start;
+  padding-bottom: 1.5rem;
 }
 .profile-state button {
   background-color: transparent;
@@ -83,7 +84,7 @@ main {
   color: white;
 }
 .card-img {
-  height: 2.5rem;
+  height: 2.56rem;
 
   position: relative;
   overflow: hidden;
@@ -193,8 +194,7 @@ main {
   .profile-state {
     flex-direction: row;
     justify-content: space-between;
-    padding-right: 1.5rem;
-    margin: 1.5rem 0;
+    padding: 1.5rem;
   }
   .profile-state button {
     padding-top: 0;
